@@ -1,0 +1,553 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #181818;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4%;
+  height: 78px;
+  background-color: #131313;
+  border-bottom: solid 1px #ff6200;
+}
+header .logo h1 {
+  color: #fff;
+  font-size: 35px;
+  font-family: "Covered By Your Grace", cursive;
+  letter-spacing: 2px;
+  word-spacing: -8px;
+  cursor: pointer;
+}
+header .logo span {
+  color: #ff6200;
+}
+main section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 650px;
+  position: relative;
+}
+main section .gameMenu {
+  display: flex;
+  width: 370px;
+  flex-direction: column;
+  padding: 80px 40px;
+  gap: 30px;
+  background-color: #131313;
+  border-right: solid 1px #ff6200;
+}
+main section .gameMenu.hidden {
+  display: none;
+}
+main section .gameMenu h1 {
+  font-size: 30px;
+  font-family: "Poetsen One", sans-serif;
+}
+main section .gameMenu span {
+  color: #ff6200;
+}
+main section {
+  color: #fff;
+}
+main section .gameMenu .titleGame {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+}
+main section .gameMenu .instruction h2 {
+  font-size: 20px;
+}
+main section .gameMenu .options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+main section .gameMenu .options .btn {
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  border-radius: 5px;
+  background-color: #ff6200;
+  cursor: pointer;
+  width: 100%;
+  height: 45px;
+  gap: 10px;
+  font-family: 'Poppins';
+}
+main section .gameMenu .options .btn.disabled {
+  background-color: #888787;
+}
+main section .gameMenu .options .btn p {
+  color: #fff;
+  font-weight: 500;
+}
+main section .gameMenu .options .btn img {
+  width: 25px;
+}
+main section .gameMenu .options .btn:hover {
+  background-color: #ffffff;
+  transition: 0.2s;
+}
+main section .gameMenu .options .btn:hover p {
+  color: #ff6200;
+  transition: 0.2s;
+}
+main section .gameMenu .options .btn.disabled:hover {
+  background-color: #888787;
+  cursor: not-allowed;
+}
+main section .gameMenu .options .btn.disabled:hover p {
+  color: #fff;
+}
+main section .nameGame {
+  display: flex;
+  width: 900px;
+  height: 560px;
+  align-items: center;
+  justify-content: center;
+}
+main section .nameGame h1 {
+  color: #fff;
+  font-size: 110px;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+}
+main section .nameGame span {
+  color: #ff6200;
+}
+main section .nameGame.hidden {
+  display: none;
+}
+main section .gameContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+  height: 592px;
+}
+main section .gameContent.hidden {
+  display: none;
+}
+main section .game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+main section .game .content {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  border: solid white 4px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+main section .game .content:nth-child(1),
+main section .game .content:nth-child(4),
+main section .game .content:nth-child(7) {
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+}
+main section .game .content:nth-child(3),
+main section .game .content:nth-child(6),
+main section .game .content:nth-child(9) {
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+}
+main section .game .content:nth-child(2),
+main section .game .content:nth-child(5),
+main section .game .content:nth-child(8) {
+  border-bottom: none;
+}
+main section .game .content:nth-child(1),
+main section .game .content:nth-child(2),
+main section .game .content:nth-child(3) {
+  border-top: none;
+}
+
+main section .game .content p {
+  font-size: 100px;
+}
+.shape {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.1s, transform 0.1s;
+}
+
+.shape.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+main section .game .content p.hidden {
+  display: none;
+}
+main section .game .content p.circle {
+  color: #ff6200;
+}
+main section .game .content p.x {
+  color: white;
+}
+main section .popUps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  border: solid blue;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+main section .popUps.hidden {
+  display: none;
+}
+main section .popUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 350px;
+  height: 200px;
+  background-color: #131313;
+  border-radius: 5px;
+  padding: 30px 40px;
+}
+main section .popUp .message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+main section .popUp .reset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+main section .popUp .reset button {
+  width: 230px;
+  height: 40px;
+  background-color: #ff6200;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  font-size: 15px;
+}
+main section .popUp .reset button:hover {
+  background-color: white;
+  color: #ff6200;
+  transition: 0.3s;
+}
+main section .scoreBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 130px 0;
+  padding-right: 60px;
+  gap: 10px;
+}
+main section .scoreBoard.hidden {
+  display: none;
+}
+main section .scoreBoard .score {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  gap: 10px;
+}
+main section .scoreBoard .score .players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+main section .scoreBoard .score .points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+main section .scoreBoard .points p {
+  font-size: 25px;
+}
+main section .scoreBoard .changeGameMode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+main section .scoreBoard .changeGameMode p {
+  font-size: 18px;
+}
+main section .scoreBoard .changeGameMode .btn {
+  display: flex;
+  justify-content: center;
+  padding-right: 10px;
+  align-items: center;
+  gap: 10px;
+  background-color: #ff6200;
+  width: 230px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+main section .scoreBoard .changeGameMode .btn p {
+  font-size: 16px;
+}
+main section .scoreBoard .changeGameMode .btn img {
+  width: 20px;
+  height: 20px;
+}
+main section .scoreBoard .changeGameMode .btn:hover {
+  background-color: #fff;
+  color: #ff6200;
+  transition: 0.3s;
+}
+.scoreBoardMob{
+  display: none;
+}
+footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 150px;
+  background-color: #131313;
+  color: #fff;
+  padding: 4%;
+}
+footer .footerContent {
+  width: 750px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footerContent .infoDev {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+footer .footerContent .infoDev h3 {
+  font-size: 20px;
+}
+footer .footerContent .infoDev p {
+  font-size: 15px;
+}
+footer .footerContent .infoDev a {
+  color: #ff6200;
+}
+footer .footerContent .logoName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .footerContent .logoName h1 {
+  font-size: 45px;
+  font-family: "Covered By Your Grace", cursive;
+  letter-spacing: 2px;
+  word-spacing: -8px;
+}
+footer .footerContent span {
+  color: #ff6200;
+}
+footer .footerContent .logoName .contact {
+  display: flex;
+  gap: 10px;
+}
+footer .footerContent .logoName .contact img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+footer .footerContent .logoName .contact img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+footer .footerContent .logoName .copy {
+  font-size: 15px;
+}
+
+/* Responsividade */
+
+@media (max-width: 500px) {
+  header {
+    padding: 0 8%;
+  }
+  header .logo h1 {
+    font-size: 30px;
+  }
+  main section {
+    height: 550px;
+    position: relative;
+  }
+  main section .gameMenu {
+    width: 100%;
+    border: 0;
+  }
+  main section .gameMenu .titleGame {
+    width: 100%;
+    height: 35px;
+  }
+  main section .nameGame {
+    display: none;
+  }
+  main section.sectionMain .instruction h2 {
+    font-family: "poppins";
+    font-size: 20px;
+  }
+  main section .options {
+    gap: 20px;
+  }
+  main section.sectionMain .options .btn {
+    height: 60px;
+    align-items: center;
+    font-size: 16px;
+    font-family: "poppins";
+  }
+  main section .gameContent {
+    width: 100%;
+    padding: 8%;
+  }
+  main section .gameContent .game {
+    width: 100%;
+  }
+  main section .gameContent .game .content {
+    width: 100%;
+    height: 120px;
+  }
+  main section .gameContent .game .content p {
+    font-size: 90px;
+    font-family: "Poppins";
+  }
+  main section .scoreBoard {
+    display: none;
+  }
+  main section .scoreBoardMob{
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    flex-direction: row-reverse;
+  }
+  main section .scoreBoardMob.hidden{
+    display: none;
+  }
+  main section .scoreBoardMob .scoreMob{
+    display: flex;
+    gap: 10px;
+    font-family: 'poppins';
+    font-size: 12px;
+  }
+  main section .scoreBoardMob .scoreMob .points{
+    display: flex;
+    gap: 5px;
+  }
+  main section .scoreBoardMob .changeGameMode{
+    display: flex;
+    gap: 10px;
+    background-color: #ff6200;
+    width: 120px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  main section .scoreBoardMob .changeGameMode .btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'poppins';
+    cursor: pointer;
+    font-size: 11px;
+    padding-right: 10px;
+  }
+  main section .scoreBoardMob .changeGameMode .btn img{
+    width: 12px;
+    height: 12px;
+  }
+  footer{
+    background-color: #111111;
+  }
+  footer .footerContent{
+    padding: 0 8%;
+    justify-content: center;
+  }
+  footer .footerContent .infoDev{
+    display: none;
+  }
+  footer .footerContent .logoName h1{
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+  main section{
+    flex-direction: column;
+    height: 100%;
+  }
+  main section .gameMenu{
+    width: 100%;
+    border: 0;
+    background-color: #181818;
+  }
+  main section .gameMenu .instruction h2{
+    font-family: 'poppins';
+    font-size: 22px;
+  }
+  main section .gameMenu .options .btn{
+   height: 70px;
+   font-size: 20px;
+   gap: 15px;
+  }
+  main section .gameContent{
+    width: 100%;
+    padding: 8%;
+  }
+  main section .nameGame{
+    width: 100%;
+    height: 350px;
+    align-items: normal;
+    padding: 60px 0;
+  }
+  main section .nameGame h1{
+    font-size: 100px;
+  }
+  footer{
+    height: 100%;
+    font-family: 'poppins';
+  }
+  footer .footerContent{
+    padding: 0 8%;
+    justify-content: center;
+  }
+  footer .footerContent .infoDev {
+    display: none;
+  }
+
+}

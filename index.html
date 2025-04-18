@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Covered+By+Your+Grace&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Timmana&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Covered+By+Your+Grace&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Timmana&display=swap"
+        rel="stylesheet">
+    <!-- Fim Fontes -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Lucas <span>Dev</span></h1>
+        </div>
+    </header>
+    <main>
+        <section class="sectionMain">
+            <div class="gameMenu">
+                <div class="titleGame">
+                    <h1>Jogo da <span>Velha</span></h1>
+                </div>
+                <div class="instruction">
+                    <h2>Escolha o Modo de Jogo</h2>
+                </div>
+
+                <div class="options">
+                    <div class="btn withFriend">
+                        <img src="assets/duo.png" alt="">
+                        <p>Jogar com amigo</p>
+                    </div>
+                    <div class="btn withMachine">
+                        <img src="assets/robot.png" alt="">
+                        <p>Jogar contra Máquina</p>
+                    </div>
+                    <div class="btn disabled">
+                        <img src="assets/block.png" alt="">
+                        <p>Jogar Online</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nameGame">
+                <h1>Jogo da <span>Velha</span></h1>
+            </div>
+            <div class="gameContent hidden">
+                <div class="game">
+                    <div class="content">
+                        <p class="shape"></p>
+                    </div>
+                    <div class="content">
+                        <p class="shape "></p>
+                    </div>
+                    <div class="content">
+                        <p class="shape"></p>
+                    </div>
+                    <div class="content">
+                        <p class="shape"></p>
+                    </div>
+                    <div class="content">
+                        <p class="shape"></p>
+                    </div>
+                    <div class="content">
+                        <p class="shape"></p>
+                    </div>
+                    <div class="content">
+                        <p class="shape"></p>
+                    </div>
+                    <div class="content">
+                        <p class="shape"></p>
+                    </div>
+                    <div class="content">
+                        <p class="shape"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="popUps hidden">
+                <div class="popUp">
+                    <div class="endGame">
+                        <h3>Fim de Jogo!</h3>
+                    </div>
+                    <div class="message">
+                        <h3></h3>
+                    </div>
+                    <div class="reset">
+                        <button>Jogar Novamente</button>
+                    </div>
+                </div>
+            </div>
+            <div class="scoreBoard hidden ">
+                <div class="title">
+                    <h2>Placar</h2>
+                </div>
+                <div class="score">
+                    <p class="player1 playerName">Player 1</p>
+                    <div class="points">
+                        <p class="point1">0</p>
+                        <p>X</p>
+                        <p class="point2 machinePoints">0</p>
+                    </div>
+                    <p class="player2 machine playerName">Player 2</p>
+                </div>
+                <div class="changeGameMode">
+                    <p>Deseja alterar o Modo de Jogo?</p>
+                    <div class="btn">
+                        <img src="assets/alter.png" alt="">
+                        <p>Alterar modo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scoreBoardMob hidden">
+                <div class="scoreMob">
+                    <p class="player1 playerName">Player 1</p>
+                    <div class="points">
+                        <p class="point1">0</p>
+                        <p>X</p>
+                        <p class="point2 machinePoints">0</p>
+                    </div>
+                    <p class="player2 machine playerName">Player 2</p>
+                </div>
+                <div class="changeGameMode">
+                    <div class="btn">
+                        <img src="assets/alter.png" alt="">
+                        <p>Alterar modo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footerContent">
+            <div class="infoDev">
+                <h3>Desenvolvido por Lucas <span>Sales</span></h3>
+                <p>15/04/2025 a 17/04/2025</p>
+                <p>icons utilizados: <a href="https://icons8.com">https://icons8.com</a></p>
+            </div>
+            <div class="logoName">
+                <h1>Lucas <span>Dev</span></h1>
+                <div class="contact">
+                    <a href="https://github.com/LucasDev-1">
+                        <img src="assets/github.png" alt="">
+                    </a>
+                    <a href="https://www.linkedin.com/in/lucasdev-1/">
+                        <img src="assets/linkedin.png" alt="">
+                    </a>
+                    <a href="https://www.instagram.com/lucasdev_1/">
+                        <img src="assets/instagram.png" alt="">
+                    </a>
+                </div>
+                <p class="copy"></p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
