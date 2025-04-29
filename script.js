@@ -11,6 +11,7 @@ const points2 = document.querySelector(".point2");
 let pointPlayer1 = 0;
 let pointPlayer2 = 0;
 const playerName = document.querySelectorAll(".playerName");
+let canClick = true;
 alterGameMode.forEach((button) => {
   button.addEventListener("click", () => {
     scoreBoardMob.classList.add("hidden");
@@ -59,61 +60,61 @@ const contents = document.querySelectorAll(".content");
 
 contents.forEach((content) => {
   content.addEventListener("click", () => {
+    if (!canClick) return; 
+
     let shape = content.querySelector(".shape");
+    if (shape.textContent !== "") return;
 
-    if (shape.textContent !== "") {
+    shape.classList.add("show");
+    shape.textContent = currentTurn;
+    shape.classList.add(currentTurn === player1 ? "x" : "circle");
+
+    if (checkWin(contents)) {
+      if (currentTurn === player1) {
+        popUpMessage.textContent = "O Player 1 Ganhou!";
+        pointPlayer1++;
+        points1.textContent = pointPlayer1;
+      } else {
+        popUpMessage.textContent = "O Player 2 Ganhou!";
+        pointPlayer2++;
+        points2.textContent = pointPlayer2;
+      }
+      popUps.classList.remove("hidden");
       return;
-    } else {
-      shape.classList.add("show");
-      shape.textContent = currentTurn;
-      shape.classList.add(currentTurn === player1 ? "x" : "circle");
+    }
 
-      if (checkWin(contents)) {
-        if (currentTurn === player1) {
-          popUpMessage.textContent = "O Player 1 Ganhou!";
-          pointPlayer1++;
-          points1.textContent = pointPlayer1;
-        } else {
-          popUpMessage.textContent = "O Player 2 Ganhou!";
+    if (isTie()) {
+      popUps.classList.remove("hidden");
+      popUpMessage.textContent = "Deu velha!";
+      return;
+    }
+
+    currentTurn = currentTurn === player1 ? player2 : player1;
+
+    if (gameMode === "withMachine" && currentTurn === player2) {
+      canClick = false;
+      setTimeout(() => {
+        botMove();
+
+        if (checkWin(contents)) {
+          popUpMessage.textContent = "A Máquina Ganhou!";
           pointPlayer2++;
           points2.textContent = pointPlayer2;
-        }
-        popUps.classList.remove("hidden");
-        return;
-      }
-
-      if (isTie()) {
-        popUps.classList.remove("hidden");
-        popUpMessage.textContent = "Deu velha!";
-        return;
-      }
-
-      currentTurn = currentTurn === player1 ? player2 : player1;
-
-      if (gameMode === "withMachine" && currentTurn === player2) {
-        setTimeout(() => {
-          botMove();
-
-          if (checkWin(contents)) {
-            popUpMessage.textContent = "A Máquina Ganhou!";
-            pointPlayer2++;
-            points2.textContent = pointPlayer2;
-            popUps.classList.remove("hidden");
-            return;
-          }
-
-          if (isTie()) {
-            popUps.classList.remove("hidden");
-            popUpMessage.textContent = "Deu velha!";
-            return;
-          }
-
+          popUps.classList.remove("hidden");
+        } else if (isTie()) {
+          popUps.classList.remove("hidden");
+          popUpMessage.textContent = "Deu velha!";
+        } else {
           currentTurn = player1;
-        }, 550);
-      }
+        }
+
+        // REATIVA CLIQUE
+        canClick = true;
+      }, 550);
     }
   });
 });
+
 
 resetButton.addEventListener("click", reset);
 const checkPatterns = [
@@ -148,6 +149,7 @@ function isTie() {
 
 function reset() {
   currentTurn = player1;
+  canClick = true;
   contents.forEach((content) => {
     content.querySelector(".shape").textContent = "";
     content.querySelector(".shape").classList.remove("x", "circle");
